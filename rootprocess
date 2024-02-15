@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Check if the script is executed as root
+if [ "$(id -u)" != "0" ]; then
+    echo "This script must be run as root"
+    exit 1
+fi
+
+# Display root processes
+echo "Root processes:"
+ps -ef | awk '$1=="root"'
